@@ -15,12 +15,31 @@ $ npm install --save file-cloud-alioss-uploader
 ```js
 var fileCloudAliossUploader = require('file-cloud-alioss-uploader');
 
-fileCloudAliossUploader('Rainbow');
+    var config = {
+      accessKeyId: process.env.ALIYUN_OSS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.ALIYUN_OSS_ACCESS_KEY_SECRET,
+      endpoint: process.env.ALIYUN_OSS_ENDPOINT,
+      apiVersion: process.env.ALIYUN_OSS_APP_VERSION,
+      Bucket: process.env.ALIYUN_OSS_BUCKET
+    };
+    fileCloudAliossUploader(function (error, data) {
+      //error: false
+      //data.ETag
+      //data.RequestId
+    }, path.resolve(__dirname, 'assets/a.jpg'), config);
 ```
 
+
 ```sh
-$ npm install --global file-cloud-alioss-uploader
-$ file-cloud-alioss-uploader --help
+$ npm install --global foss
+$ foss --help
+
+$ foss  a.txt aliyun.json
+
+$ foss a.jpg aliyun.json --type md5
+
+$ foss a.jpg aliyun.json --type md5 --case upper
+
 ```
 
 
