@@ -13,8 +13,9 @@ describe('file-cloud-alioss-uploader node module', function () {
       apiVersion: process.env.ALIYUN_OSS_APP_VERSION,
       Bucket: process.env.ALIYUN_OSS_BUCKET
     };
-    fileCloudAliossUploader(function (error, data) {
+    fileCloudAliossUploader(function (error, hashNamedFile, data) {
       assert.equal(true, !error);
+      assert.equal(true, typeof hashNamedFile === 'string');
       assert.equal(true, validator.isHexadecimal(data.ETag.replace(/\"/g, "")));
       assert.equal(true, validator.isHexadecimal(data.RequestId));
       done();

@@ -22,7 +22,9 @@ module.exports = function (next, filename, aliossConf, type, upper) {
           Bucket: aliossConf.Bucket,
           Key: hashNamedFile,                 // 注意, Key 的值不能以 / 开头, 否则会返回错误.
           Body: body
-        }, next);
+        }, function(error, data) {
+        next(error, hashNamedFile, data);
+      });
     },
     filename,
     type,
