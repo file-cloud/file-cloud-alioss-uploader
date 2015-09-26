@@ -10,7 +10,7 @@ module.exports = function (next, filename, aliossConf, type, upper) {
   fash(function (hash) {
       var hashNamedFile = hash + path.extname(filename);
       var body = fs.readFileSync(filename);
-      var ALI = require('aliyun-sdk');
+      var ALI = require('aliyun-sdk-clean');
       var oss = new ALI.OSS({
         accessKeyId: aliossConf.accessKeyId,
         secretAccessKey: aliossConf.secretAccessKey,

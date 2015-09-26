@@ -5,7 +5,7 @@ var fileCloudAliossUploader = require('../');
 var validator = require('validator');
 
 describe('file-cloud-alioss-uploader node module', function () {
-  it('must have at least one test', function (done) {
+  it('should be able to uploaing file to aliyun oss', function (done) {
     var config = {
       accessKeyId: process.env.ALIYUN_OSS_ACCESS_KEY_ID,
       secretAccessKey: process.env.ALIYUN_OSS_ACCESS_KEY_SECRET,
